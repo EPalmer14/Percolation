@@ -1,0 +1,197 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf610
+{\fonttbl\f0\fmodern\fcharset0 Courier;\f1\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww23040\viewh12980\viewkind0
+\deftab720
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+/******************************************************************************\
+ *  Name: Zeke Palmer    \
+ *  NetID: 7026564712    \
+ *  Precept:  \
+ *\
+ *  Name: Siobhan Lounsbury\
+ *  NetID: 7026540611\
+ *  Partner Precept:\
+ * \
+ *  Operating system:\
+ *  Compiler:\
+ *  Text editor / IDE:\
+ *\
+ *  Have you taken (part of) this course before:\
+ *  Have you taken (part of) the Coursera course Algorithm, Part I:\
+ *\
+ *  Hours to complete assignment (optional): 9\
+ *\
+ ******************************************************************************/\
+\
+Programming Assignment 1: Percolation\
+\
+\
+/******************************************************************************\
+ *  Describe how you implemented Percolation.java. How did you check\
+ *  whether the system percolates?\
+ *****************************************************************************/\
+We used the WeightedQuickUnionUF class to union sites together. To check if the system\
+percolates, we did a check to see if the top was connected to the bottom. If they are connected\
+then the system percolates.\
+\
+\
+/******************************************************************************\
+ *  Perform computational experiments to estimate the running time of\
+ *  PercolationStats.java for values values of n and T when implementing\
+ *  Percolation.java with QuickFindUF.java.\
+ *\
+ *  To do so, fill in the two tables below. Each table must have 4-10\
+ *  data points, ranging in time from around 0.25 seconds for the smallest\
+ *  data point to around 30 seconds for the largest one. Do not include\
+ *  data points that takes less than 0.1 seconds.\
+ *****************************************************************************/\
+\
+(keep T constant) = 1000\
+\
+ n          time (seconds)\
+------------------------------\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 20 			0.157\
+40 			0.234	x1.5\
+80			1.091	x5\
+160 			3.807	x3.5\
+320 			24.295	x6.5
+\f0 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+(keep n constant) = 50\
+\
+ T          time (seconds)\
+------------------------------\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 100			0.126	\
+200			0.157 	x1.2\
+400 			0.262	x1.7\
+800 			0.355	x1.35\
+1600			0.630	x1.75\
+3200 		1.070	x1.7
+\f0 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+/******************************************************************************\
+ *  Using the empirical data from the above two tables, give a formula \
+ *  (using tilde notation) for the running time (in seconds) of\
+ *  PercolationStats.java as function of both n and T, such as\
+ *\
+ *       ~ 5.3*10^-8 * n^5.0 * T^1.5\
+ *\
+ *  Recall that with tilde notation, you include both the coefficient\
+ *  and exponents of the leading term (but not lower-order terms).\
+ *  Round each coefficient to two significant digits.\
+ *\
+ *****************************************************************************/\
+\
+QuickFindUF running time (in seconds) as a function of n and T:  \
+\
+~ 2 * n^3 * 1.7T\
+\
+\
+/******************************************************************************\
+ *  Repeat the previous two questions, but using WeightedQuickUnionUF\
+ *  (instead of QuickFindUF).\
+ *****************************************************************************/\
+\
+(keep T constant) = 1000\
+\
+ n         time (seconds)\
+------------------------------\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 20                      0.195\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf0 40                      0.279	x1.5\
+80			 0.856	x3\
+160 			 2.005	x2.4\
+320 			 7.765	x3.85\
+640			 37.687	x4.85
+\f0 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+\
+(keep n constant) = 50\
+\
+ T          time (seconds)\
+------------------------------\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+
+\f1 \cf0 \kerning1\expnd0\expndtw0 100			0.107\
+200			0.150	x1.5 \
+400 			0.234	x1.5\
+800 			0.389	x1.65\
+1600			0.581 	x1.5\
+3200 		0.980	x1.7
+\f0 \cf2 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl280\partightenfactor0
+\cf2 \
+\
+WeightedQuickUnionUF running time (in seconds) as a function of n and T:  \
+\
+~ 2 * n^2 * 1.5T\
+\
+ \
+\
+/**********************************************************************\
+ *  How much memory (in bytes) does a Percolation object (which uses\
+ *  WeightedQuickUnionUF.java) use to store an N-by-N grid? Use the\
+ *  64-bit memory cost model from Section 1.4 of the textbook and use\
+ *  tilde notation to simplify your answer. Briefly justify your answers.\
+ *\
+ *  Include the memory for all referenced objects (deep memory).\
+ **********************************************************************/\
+\
+Our Percolation Object uses 48 bytes. 16 bytes for overhead, 4 bytes for each of our \
+four int instance variables, 4 for the boolean grid instance variable, 8 for the \
+WeightedQuickUnionUF, and 4 more for padding. Add all this up and it uses 48 bytes of \
+memory.\
+\
+\
+/******************************************************************************\
+ *  Known bugs / limitations.\
+ *****************************************************************************/\
+\
+Backwash\
+\
+\
+/******************************************************************************\
+ *  Describe whatever help (if any) that you received.\
+ *  Don't include readings, lectures, and precepts, but do\
+ *  include any help from people (including course staff, lab TAs,\
+ *  classmates, and friends) and attribute them by name.\
+ *****************************************************************************/\
+We helped each other through this project and when we got stumped, we asked questions\
+on Piazza. We received anonymous help from Piazza.\
+\
+/******************************************************************************\
+ *  Describe any serious problems you encountered.                    \
+ *****************************************************************************/\
+The biggest problem to get the program to work was figuring out how to keep everything \
+in bounds while checking neighboring sites. Figuring out how to work the top and bottom of\
+the grid also took some problem solving. Finally dealing with the backwash problem is \
+tough.\
+\
+\
+/******************************************************************************\
+ *  List any other comments here. Feel free to provide any feedback   \
+ *  on how much you learned from doing the assignment, and whether    \
+ *  you enjoyed doing it.                                             \
+ *****************************************************************************/\
+:)\
+}
